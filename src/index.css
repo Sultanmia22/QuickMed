@@ -7,3 +7,18 @@ body{
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --primary-color: #0066CC;
+  --secondary-color: #00C4CC
+}
+
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  --primary-color: #339AF0; 
+  --secondary-color: #22B8CF;
+}
