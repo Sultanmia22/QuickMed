@@ -12,13 +12,13 @@ body{
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --primary-color: #0066CC;
-  --secondary-color: #00C4CC
+  --color-primary: #0D9488;
+  --color-secondary: #00C4CC;
 }
 
 
 @plugin "daisyui/theme" {
   name: "dark";
-  --primary-color: #339AF0; 
-  --secondary-color: #22B8CF;
+  --color-primary: #2DD4BF; 
+  --color-secondary: #22B8CF;
 }
