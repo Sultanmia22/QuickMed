@@ -42,7 +42,7 @@ const SignUp = () => {
                 </div>
 
                 <div>
-                    <button className='btn bg-secondary text-white w-full' type="submit">Register</button>
+                    <button className='btn bg-secondary text-white w-full'>Register</button>
                 </div>
 
                 <div className='flex items-center justify-center gap-2'>
