@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import Mainlayout from "../Layouts/Mainlayout";
+import SignUp from "../Page/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,13 @@ const router = createBrowserRouter([
      {
       path: '/how-work',
       element: <div>How To Works</div>
-     }
+     },
+
+    //  Auth Routes
+    {
+      path: '/sign-up',
+      element: <SignUp/>
+    }
     ]
   },
 ]);

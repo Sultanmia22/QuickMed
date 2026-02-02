@@ -1,0 +1,63 @@
+import React from 'react'
+import { FaClinicMedical } from 'react-icons/fa'
+import { Link } from 'react-router'
+import GoogleSignUp from '../../Components/GoogleSignIn/GoogleSignUp'
+
+const SignUp = () => {
+  return (
+    <div className=' flex flex-col justify-center '>
+        {/* <div>
+           <Link to={'/'} className='flex justify- items-center gap-1'>
+              <span><FaClinicMedical className='text-primary' size={26} /></span>
+              <h2 className='text-xl text-primary font-bold'> Quick<span className='text-secondary'>M</span>ed </h2>
+            </Link>
+        </div> */}
+
+        <div className='space-y-2 text-center mt-20'>
+            <h2 className='text-5xl font-semibold'>Let’s get started!</h2>
+            <p>Create a new Anfra account</p>
+        </div>
+
+        {/* Registration Form */}
+        <div className='my-10 md:w-1/3 w-full mx-auto'>
+            <form className='flex flex-col justify-between gap-5'>
+                <div className='border border-gray-300 text-start p-3 rounded-md'>
+                    <label>Full Name</label> <br />
+                    <input className='border-0 outline-0 placeholder:text-sm' type="text" placeholder='Enter Your Full Nmae'/>
+                </div>
+
+                <div className='border border-gray-300 text-start p-3 rounded-md'>
+                    <label>Image</label> <br />
+                    <input className='border-0 outline-0 placeholder:text-sm' type="file" placeholder='Enter Your Full Nmae'/>
+                </div>
+
+                <div className='border border-gray-300 text-start p-3 rounded-md'>
+                    <label>Email</label> <br />
+                    <input className='border-0 outline-0 placeholder:text-sm' type="email" placeholder='Enter Your email'/>
+                </div>
+
+                <div className='border border-gray-300 text-start p-3 rounded-md'>
+                    <label>Password</label> <br />
+                    <input className='border-0 outline-0 placeholder:text-sm' type="password" placeholder='Minimum 8 Character'/>
+                </div>
+
+                <div>
+                    <button className='btn bg-secondary text-white w-full' type="submit">Register</button>
+                </div>
+
+                <div className='flex items-center justify-center gap-2'>
+                    <div className='h-0.5 md:w-10 bg-gray-300'></div>
+                    <div>Or</div>
+                    <div className='h-0.5 md:w-10 bg-gray-300'></div>
+                </div>
+
+                <div>
+                    <GoogleSignUp/>
+                </div>
+            </form>
+        </div>
+    </div>
+  )
+}
+
+export default SignUp

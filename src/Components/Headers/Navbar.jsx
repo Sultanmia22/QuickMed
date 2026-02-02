@@ -95,9 +95,9 @@ const Navbar = () => {
 
           {/* Auth Buttons */}
           <div className='flex items-center gap-3'>
-            <Link className='text-primary font-bold'> SignIn </Link>
+            <Link  className='text-primary font-bold'> SignIn </Link>
             <div className='h-5 w-0.5 bg-secondary'></div>
-            <Link className='text-primary font-bold'> SignUp </Link>
+            <Link to='/sign-up' className='text-primary font-bold'> SignUp </Link>
           </div>
 
         </div>
