@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaBars, FaClinicMedical } from 'react-icons/fa'
 import { RxCross1 } from 'react-icons/rx'
 import { Link, NavLink } from 'react-router'
@@ -7,6 +7,8 @@ import { Link, NavLink } from 'react-router'
 const Navbar = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -21,9 +23,24 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  // get html element and set data-theme attribute 
+  useEffect(() => {
+    const htmlElement = document.querySelector('html');
+    htmlElement.setAttribute('data-theme',theme);
+    localStorage.setItem('theme',theme);
+  },[theme])
+
+  // TOGGLE THEME 
+  const toggleTheme = (checked) => {
+    setTheme(checked ? 'dark' : 'light')
+  }
+
+
+
+
 
   return (
-    <div className='bg-base-100 py-5 border-b-2 border-primary w-full'>
+    <div className='bg-base-100 py-5 border-b-2 border-primary w-full dark:bg-gray-700'>
       <nav className=' w-11/12 md:w-10/12 mx-auto flex justify-between items-center'>
 
         {/* Logo */}
@@ -31,7 +48,7 @@ const Navbar = () => {
           {/* Mobile Nav Link */}
           {
             isMenuOpen &&
-            <div className=' w-full absolute top-21 left-0 md:hidden'>
+            <div className=' w-full absolute top-19 left-0 md:hidden'>
               <ul className='flex flex-col gap-5 bg-base-100  py-4 px-5  z-20 shadow-xl text-center'>
                 {
                   navLinks.map(link => <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? ' border border-primary/25 py-2 text-primary rounded-md' : 'text-primary rounded-md'} key={link.path} to={link.path}> {link.name} </NavLink>)
@@ -61,9 +78,28 @@ const Navbar = () => {
           }
         </ul>
 
-        {/* PROFILE AND AUTH BUTTONS */}
-        <div>
-          <button className='btn btn-outline btn-primary mr-2'> Login </button>
+        {/* PROFILE AND AUTH BUTTONS and theme controll */}
+        <div className='flex items-center gap-5'>
+
+          {/* Theme Control Section */}
+          <div>
+            <label>
+              <input className='hidden' onClick={(e) => toggleTheme(e.target.checked)} type="checkbox" name="" id="" />
+              <div>
+                {
+                  theme === 'dark' ? <span className=' text-primary ml-2'>🌙</span> : <span className='  text-primary ml-2'>☀️</span>
+                }
+              </div>
+            </label>
+          </div>
+
+          {/* Auth Buttons */}
+          <div className='flex items-center gap-3'>
+            <Link className='text-primary font-bold'> SignIn </Link>
+            <div className='h-5 w-0.5 bg-secondary'></div>
+            <Link className='text-primary font-bold'> SignUp </Link>
+          </div>
+
         </div>
       </nav>
     </div>

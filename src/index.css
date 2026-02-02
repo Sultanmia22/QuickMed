@@ -22,3 +22,5 @@ body{
   --color-primary: #2DD4BF; 
   --color-secondary: #22B8CF;
 }
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
