@@ -55,6 +55,7 @@ const SignUp = () => {
                     <GoogleSignUp/>
                 </div>
             </form>
+            <div className='my-5'> <p>Already have an account? <Link className='text-primary'>Login Now!</Link></p> </div>
         </div>
     </div>
   )

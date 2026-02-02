@@ -26,9 +26,9 @@ const Navbar = () => {
   // get html element and set data-theme attribute 
   useEffect(() => {
     const htmlElement = document.querySelector('html');
-    htmlElement.setAttribute('data-theme',theme);
-    localStorage.setItem('theme',theme);
-  },[theme])
+    htmlElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme])
 
   // TOGGLE THEME 
   const toggleTheme = (checked) => {
@@ -65,7 +65,18 @@ const Navbar = () => {
             </div>
 
             <Link className='flex items-center gap-1'>
-              <span><FaClinicMedical className='text-primary' size={26} /></span>
+              <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Stethoscope */}
+                <path d="M15 45V30C15 15 35 15 35 25M85 45V30C85 15 65 15 65 25M15 45C15 85 85 85 85 45" stroke="#10B981" strokeWidth="5" strokeLinecap="round" />
+                <circle cx="35" cy="25" r="4" fill="#10B981" /> <circle cx="65" cy="25" r="4" fill="#10B981" />
+
+                {/* Clinic Building */}
+                <path d="M30 35h40v45H30z M22 50h10v30H22z M68 50h10v30H68z" fill="#0EA5E9" />
+
+                {/* Cross & Bell */}
+                <path d="M42 48h16v6H42z M47 43h6v16h-6z" fill="#fff" />
+                <circle cx="50" cy="82" r="9" fill="#10B981" stroke="#fff" strokeWidth="2" />
+              </svg>
               <h2 className='text-xl text-primary font-bold'> Quick<span className='text-secondary'>M</span>ed </h2>
             </Link>
           </div>
@@ -95,7 +106,7 @@ const Navbar = () => {
 
           {/* Auth Buttons */}
           <div className='flex items-center gap-3'>
-            <Link  className='text-primary font-bold'> SignIn </Link>
+            <Link className='text-primary font-bold'> SignIn </Link>
             <div className='h-5 w-0.5 bg-secondary'></div>
             <Link to='/sign-up' className='text-primary font-bold'> SignUp </Link>
           </div>
