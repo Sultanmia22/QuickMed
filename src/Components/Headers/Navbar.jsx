@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { FaClinicMedical } from 'react-icons/fa'
+import { FaBars, FaClinicMedical } from 'react-icons/fa'
+import { RxCross1 } from 'react-icons/rx'
 import { Link, NavLink } from 'react-router'
 
 
 const Navbar = () => {
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -13,6 +16,11 @@ const Navbar = () => {
     { name: 'How It Works', path: '/how-work' },
   ]
 
+  // TOGGLE MENU FOR MOBILE VIEW
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
 
   return (
     <div className='bg-base-100 py-5 border-b-2 border-primary w-full'>
@@ -20,17 +28,30 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className=''>
-          <div className=' w-full absolute top-21 left-0 md:hidden'>
-            <ul className='flex flex-col gap-5 bg-base-100  py-4 px-5  z-20 shadow-xl text-center'>
+          {/* Mobile Nav Link */}
+          {
+            isMenuOpen &&
+            <div className=' w-full absolute top-21 left-0 md:hidden'>
+              <ul className='flex flex-col gap-5 bg-base-100  py-4 px-5  z-20 shadow-xl text-center'>
+                {
+                  navLinks.map(link => <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? ' border border-primary/25 py-2 text-primary rounded-md' : 'text-primary rounded-md'} key={link.path} to={link.path}> {link.name} </NavLink>)
+                }
+              </ul>
+            </div>
+          }
+          <div className='flex items-center gap-3'>
+            <div onClick={toggleMenu} className='md:hidden'>
               {
-                navLinks.map(link => <NavLink className={({ isActive }) => isActive ? ' border border-primary/25 py-2 text-primary rounded-md' : 'text-primary rounded-md'} key={link.path} to={link.path}> {link.name} </NavLink>)
+                isMenuOpen ? <RxCross1 className='text-primary' size={20} /> : <FaBars className='text-primary' size={20} />
               }
-            </ul>
+
+            </div>
+
+            <Link className='flex items-center gap-1'>
+              <span><FaClinicMedical className='text-primary' size={26} /></span>
+              <h2 className='text-xl text-primary font-bold'> Quick<span className='text-secondary'>M</span>ed </h2>
+            </Link>
           </div>
-          <Link className='flex items-center gap-1'>
-            <span><FaClinicMedical className='text-primary' size={26} /></span>
-            <h2 className='text-xl text-primary font-bold'> Quick<span className='text-secondary'>M</span>ed </h2>
-          </Link>
         </div>
 
         {/* Nav Links Desktop */}
