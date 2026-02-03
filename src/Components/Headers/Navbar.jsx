@@ -51,7 +51,7 @@ const Navbar = () => {
             <div className=' w-full absolute top-19 left-0 md:hidden'>
               <ul className='flex flex-col gap-5 bg-base-100  py-4 px-5  z-20 shadow-xl text-center'>
                 {
-                  navLinks.map(link => <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? ' border border-primary/25 py-2 text-primary rounded-md' : 'text-primary rounded-md'} key={link.path} to={link.path}> {link.name} </NavLink>)
+                  navLinks.map(link => <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? ' border border-primary/25 py-2 text-primary rounded-md font-semibold' : 'text-primary rounded-md font-bold'} key={link.path} to={link.path}> {link.name} </NavLink>)
                 }
               </ul>
             </div>
