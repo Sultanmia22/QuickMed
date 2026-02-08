@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router'
 import GoogleSignUp from '../../Components/GoogleSignIn/GoogleSignUp'
 import { useForm } from 'react-hook-form'
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 
 const SignIn = () => {
 
@@ -10,10 +11,10 @@ const SignIn = () => {
     const { register, handleSubmit, watch, formState: { errors }, } = useForm()
 
     const handleLogin = async (data) => {
-        try{
+        try {
 
         }
-        catch(er){
+        catch (er) {
             console.log(er.message)
         }
     }
@@ -46,7 +47,7 @@ const SignIn = () => {
                         {errors.email && <p className='text-red-500 text-sm'> {errors.email.message} </p>}
                     </div>
 
-                    <div className='border border-gray-300 text-start p-3 rounded-md hover:border-primary duration-300'>
+                    <div className=' relative border border-gray-300 text-start p-3 rounded-md hover:border-primary duration-300'>
                         <label>Password</label> <br />
                         <input
                             {...register('password', {
@@ -58,9 +59,16 @@ const SignIn = () => {
 
                             })}
                             className='border-0 outline-0 placeholder:text-sm'
-                            type="password"
+                            type={showPass ? 'text' : 'password'}
                             placeholder='Minimum 8 Character' />
                         {errors.password && <p className='text-red-500 text-sm'> {errors.password.message} </p>}
+
+                        <div onClick={() => setShowPass(!showPass)} className='absolute top-7.5 right-2'>
+                            {
+                                showPass ? <FaRegEyeSlash /> : <FaRegEye />
+                            }
+
+                        </div>
                     </div>
 
                     <div>
