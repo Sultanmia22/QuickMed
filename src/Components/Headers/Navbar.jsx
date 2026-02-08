@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import { FaBars, FaClinicMedical } from 'react-icons/fa'
 import { RxCross1 } from 'react-icons/rx'
 import { Link, NavLink } from 'react-router'
+import { AuthContext } from '../../Auth/AuthContext'
 
 
 const Navbar = () => {
+
+
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -106,9 +109,9 @@ const Navbar = () => {
 
           {/* Auth Buttons */}
           <div className='flex items-center gap-3'>
-            <Link to={'/sign-in'} className='text-primary font-bold'> SignIn </Link>
+            <Link to={'/sign-in'} className='text-primary font-bold hover:text-secondary'> SignIn </Link>
             <div className='h-5 w-0.5 bg-secondary'></div>
-            <Link to='/sign-up' className='text-primary font-bold'> SignUp </Link>
+            <Link to='/sign-up' className='text-primary font-bold hover:text-secondary'> SignUp </Link>
           </div>
 
         </div>
